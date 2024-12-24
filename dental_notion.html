@@ -12,11 +12,15 @@
             /* 定義牙齒的不同狀態 */
             .D { fill: #FF0000; }     
             .X { fill: #000000; }    
-            .R { fill: url(#half-black-white) }    
             .F { fill: #FFFF00; }     
             .C { fill: #0000FF; }      
             .N { fill: #FFFFFF; } 
-            
+            .R-upper {
+                fill: url(#half-white-black);
+            }
+            .R-lower {
+                fill: url(#half-black-white);
+            }
 
             body {
                 display: flex; /* 設置 body 元素為彈性盒子容器 */
@@ -94,8 +98,17 @@
 
             // 改變牙齒狀態
             function changeToothStatus(toothGroup, status) {
-                const group = document.querySelector(`.${toothGroup}`);
-                group.className.baseVal = `${toothGroup} ${status}`;
+                const tooth = `tooth-group${toothGroup}`
+                const group = document.querySelector(`.${tooth}`);
+                if (status == 'R') {
+                    if (toothGroupsUpper.includes(toothGroup)) {
+                        group.className.baseVal = `${tooth} R-upper`;
+                    } else if (toothGroupsLower.includes(toothGroup)) {
+                        group.className.baseVal = `${tooth} R-lower`;
+                    }
+                } else {
+                    group.className.baseVal = `${tooth} ${status}`;
+                }
             }
 
             // 動態生成 Radio Buttons
@@ -118,7 +131,7 @@
 
                     // 綁定 onchange 事件
                     radio.onchange = function() {
-                        changeToothStatus(`tooth-group${toothGroup}`, this.value);
+                        changeToothStatus(toothGroup, this.value);
                     };
 
                     // 將 Radio Buttons 添加到 label 元素中
@@ -252,7 +265,7 @@
                 <span>蛀牙</span>
                 <div style="width: 20px; height: 20px; background-color: #000000; border: 1px solid #000;"></div>
                 <span>缺牙</span>
-                <div style="width: 20px; height: 20px; background: linear-gradient(to right, #000000 50%, #FFFFFF 50%); border: 1px solid #000;"></div>
+                <div style="width: 20px; height: 20px; background: linear-gradient(to top, #000000 50%, #FFFFFF 50%); border: 1px solid #000;"></div>
                 <span>斷牙</span>
                 <div style="width: 20px; height: 20px; background-color: #FFFF00; border: 1px solid #000;"></div>
                 <span>補牙</span>
@@ -307,7 +320,11 @@
                 xmlns:svg="http://www.w3.org/2000/svg">
 
             <defs id="defs1">
-                <linearGradient id="half-black-white" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient id="half-white-black" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="50%" style="stop-color:#000000"/>
+                    <stop offset="50%" style="stop-color:#FFFFFF"/>
+                </linearGradient>
+                <linearGradient id="half-black-white" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="50%" style="stop-color:#000000"/>
                     <stop offset="50%" style="stop-color:#FFFFFF"/>
                 </linearGradient>
