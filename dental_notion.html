@@ -189,8 +189,8 @@
                 const name = document.getElementById('pname').value;
                 const id = document.getElementById('pid').value;
                 // 準備CSV內容
-                let csvContent = `姓名：${name}\n`;
-                csvContent += `身分證字號：${id}\n`;
+                
+                // csvContent += `身分證字號：${id}\n`;
                 
                 // 獲取上顎牙齒編號
                 const upperNumbers = Array.from(document.getElementById('table-head-row-upper')
@@ -213,16 +213,17 @@
                     .map(radio => radio.value);
                 
                 // 添加上顎數據（從左到右）
-                csvContent += '上顎牙齒編號,' + upperNumbers.join(',') + '\n';
-                csvContent += '上顎狀態,' + upperStatuses.join(',') + '\n';
-                
-                // 添加下顎數據（從左到右）
-                csvContent += '下顎牙齒編號,' + lowerNumbers.join(',') + '\n';
-                csvContent += '下顎狀態,' + lowerStatuses.join(',') + '\n';
+                let csvContent = `姓名,身分證字號,日期,`;
+                const date = new Date().toISOString().split('T')[0];
+                csvContent += upperNumbers.join(',') + ",";
+                csvContent += lowerNumbers.join(',') + '\n';
+                csvContent += name + ',' + id + ','+ date + ',';    
+                csvContent += upperStatuses.join(',') + ",";
+                csvContent += lowerStatuses.join(',') + '\n';
                 
                 // 創建並下載CSV文件
-                const date = new Date().toISOString().split('T')[0];
-                const fileName = name ? `tooth_status_${name}_${date}.csv` : 'tooth_status.csv';
+                
+                const fileName = name ? `tooth_status_${name}_${id}_${date}.csv` : 'tooth_status.csv';
                 const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
                 const link = document.createElement('a');
                 const url = URL.createObjectURL(blob);
