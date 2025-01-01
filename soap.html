@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>牙科到宅醫療病歷表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin: 10px 0;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            width: 45%;
+            margin-bottom: 10px;
+        }
+        .location-group {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .location-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 5px 0;
+        }
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 100px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 3px;
+        }
+        .checkbox-item label {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .status-group {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 5px 0;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>牙科到宅醫療病歷表</h1>
+        
+        <div class="section">
+            <h2>主訴</h2>
+            
+            <div class="checkbox-group">
+    
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint1" name="complaint" value="洗牙 - Ask for oral examination and pain relief due to gum swelling and bleeding">
+                    <label for="complaint1">洗牙 - Ask for oral examination and pain relief due to gum swelling and bleeding</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint2" name="complaint" value="補牙 - Ask for oral examination and pain relief due to caries/cavity and food impaction">
+                    <label for="complaint2">補牙 - Ask for oral examination and pain relief due to caries/cavity and food impaction</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint3" name="complaint" value="拔牙 - Ask for oral examination and pain relief due to mobility tooth and swelling">
+                    <label for="complaint3">拔牙 - Ask for oral examination and pain relief due to mobility tooth and swelling</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>診斷</h2>
+            
+            
+            <div class="location-group">
+                <h3>洗牙診斷</h3>
+                <div>
+                    <input type="checkbox" id="diagnosis1" name="diagnosis" value="洗牙診斷- FM chronic gingivitis and periodontitis with heavy calculus deposition">
+                    <label for="diagnosis1">FM chronic gingivitis and periodontitis with heavy calculus deposition</label>
+                </div>
+            </div>
+
+            <div class="location-group">
+                <h3>補牙診斷- Cavity</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_labial" name="cavity_location" value="Labial">
+                        <label for="loc_labial">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_buccal" name="cavity_location" value="Buccal">
+                        <label for="loc_buccal">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_occlusal" name="cavity_location" value="Occlusal">
+                        <label for="loc_occlusal">Occlusal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_palatal" name="cavity_location" value="Palatal">
+                        <label for="loc_palatal">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_lingual" name="cavity_location" value="Lingual">
+                        <label for="loc_lingual">Lingual</label>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="location-group">
+                <h3>補牙診斷- Caries</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_labial" name="caries_location" value="Labial">
+                        <label for="loc_labial">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_buccal" name="caries_location" value="Buccal">
+                        <label for="loc_buccal">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_occlusal" name="caries_location" value="Occlusal">
+                        <label for="loc_occlusal">Occlusal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_palatal" name="caries_location" value="Palatal">
+                        <label for="loc_palatal">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_lingual" name="caries_location" value="Lingual">
+                        <label for="loc_lingual">Lingual</label>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="location-group">
+                <h3>拔牙診斷</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_labial" name="ulcer_location" value="Labial">
+                        <label for="ulcer_labial">periodontal mobility tooth, prognosis is poor</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_buccal" name="ulcer_location" value="Buccal">
+                        <label for="ulcer_buccal">mobility retained residual root</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-group">
+                <h3>潰瘍診斷</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_labial" name="ulcer_location" value="Labial">
+                        <label for="ulcer_labial">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_buccal" name="ulcer_location" value="Buccal">
+                        <label for="ulcer_buccal">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_palatal" name="ulcer_location" value="Palatal">
+                        <label for="ulcer_palatal">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_lingual" name="ulcer_location" value="Lingual">
+                        <label for="ulcer_lingual">Lingual</label>
+                    </div>
+                    side oral mucosa ulcer
+                </div>
+            </div>
+
+            <div class="location-group">
+                <h3>腫脹診斷</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="swelling_labial" name="swelling_location" value="Labial">
+                        <label for="swelling_labial">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="swelling_buccal" name="swelling_location" value="Buccal">
+                        <label for="swelling_buccal">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="swelling_palatal" name="swelling_location" value="Palatal">
+                        <label for="swelling_palatal">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="swelling_lingual" name="swelling_location" value="Lingual">
+                        <label for="swelling_lingual">Lingual</label>
+                    </div>
+                    side periodontal swelling
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>治療</h2>
+            <div class="location-group">
+                <h3>共同治療</h3>
+                <div>
+                    <input type="checkbox" id="co_treatment" name="treatment" value="First patient medical condition interview, then check up oral soft tissue conditions">
+                    <label for="co_treatment">First patient medical condition interview, then check up oral soft tissue conditions</label>
+                </div>
+            </div> 
+            <div class="location-group">
+                <h3>洗牙治療</h3>
+                <div>
+                    <input type="checkbox" id="dental_cleaning" name="treatment" value="FM ultrasonic scaling for removal of plaque and calculus">
+                    <label for="dental_cleaning">FM ultrasonic scaling for removal of plaque and calculus</label>
+                </div>
+            </div> 
+            <div class="location-group">
+                <h3>磨牙治療</h3>
+                Smooth the sharp part of the 
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="treatment_decayed_tooth" name="treatment" value="Decayed Root">
+                        <label for="treatment_decayed_tooth"> Decayed Root</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="treatment_decayed_tooth" name="treatment" value="Residual tooth">
+                        <label for="treatment_decayed_tooth">Residual tooth</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="treatment_decayed_tooth" name="treatment" value="Crown">
+                        <label for="treatment_decayed_tooth">Crown</label>
+                    </div>
+                </div>
+            </div>  
+            <div class="location-group">
+                <h3>補牙治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_labial" name="filling_location" value="Labial">
+                        <label for="fill_labial">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_buccal" name="filling_location" value="Buccal">
+                        <label for="fill_buccal">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_occlusal" name="filling_location" value="Occlusal">
+                        <label for="fill_occlusal">Occlusal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_palatal" name="filling_location" value="Palatal">
+                        <label for="fill_palatal">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_lingual" name="filling_location" value="Lingual">
+                        <label for="fill_lingual">Lingual</label>
+                    </div>
+                </div>
+                surface CRF after caries removal by hand curet and self-etch adhesives with light-curing filling, polishing and finishing
+            </div>
+            <div class="location-group">
+                <h3>補牙治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_labial_gif" name="filling_location" value="Labial">
+                        <label for="fill_labial_gif">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_buccal_gif" name="filling_location" value="Buccal">
+                        <label for="fill_buccal_gif">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_occlusal_gif" name="filling_location" value="Occlusal">
+                        <label for="fill_occlusal_gif">Occlusal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_palatal_gif" name="filling_location" value="Palatal">
+                        <label for="fill_palatal_gif">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="fill_lingual_gif" name="filling_location" value="Lingual">
+                        <label for="fill_lingual_gif">Lingual</label>
+                    </div>
+                    <div class="location-item">
+                        surface GIF after caries removal by hand curet and self-etch adhesives , polishing and finishing
+                    </div>
+                </div>
+                
+            </div>
+            <div class="location-group">
+                <h3>塗氟治療</h3>
+                <div>
+                    <input type="checkbox" id="treatment1" name="treatment" value="共同治療">
+                    <label for="treatment1">FM fluoride application with 2.40%F fluoride gel and oral hygiene instruction</label>
+                </div>
+            </div> 
+            <div class="location-group">
+                <h3>拔牙治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="topical_anesthesia" name="simple_extraction" value="Topical anesthesia">
+                        <label for="topical_anesthesia">Topical anesthesia</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="local_anesthesia" name="simple_extraction" value="local injection anesthesia">
+                        <label for="local_anesthesia">local injection anesthesia</label>
+                    </div>
+                    <div class="location-item">
+                        and simple extraction
+                    </div>
+                </div>
+                
+            </div>
+            <div class="location-group">
+                <h3>潰瘍治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_labial_treatment" name="ulcer_treatment_location" value="Labial">
+                        <label for="ulcer_labial_treatment">Labial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_buccal_treatment" name="ulcer_treatment_location" value="Buccal">
+                        <label for="ulcer_buccal_treatment">Buccal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_palatal_treatment" name="ulcer_treatment_location" value="Palatal">
+                        <label for="ulcer_palatal_treatment">Palatal</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="ulcer_lingual_treatment" name="ulcer_treatment_location" value="Lingual">
+                        <label for="ulcer_lingual_treatment">Lingual</label>
+                    </div>
+                    oral ulcer treatment with kenalog gel application
+                </div>
+            </div>
+            <div class="location-group">
+                <h3>牙周治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="periodontal_treatment" name="periodontal_treatment" value="periodontal treatment with local scaling and curettage for swelling pain relief">
+                        <label for="periodontal_treatment">periodontal treatment with local scaling and curettage for swelling pain relief</label>
+                    </div>
+                </div>
+            </div>
+            <div class="location-group">
+                <h3>拆線治療</h3>
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="remove_stitches" name="remove_stitches" value="remove stitches under Iodine application">
+                        <label for="remove_stitches">remove stitches under Iodine application</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>衛教 </h2>
+            oral hygiene instruction for
+            <div class="checkbox-group">
+    
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction1" name="instruction" value="mouth cleaning of the oral mucosa with some oral sponge brush">
+                    <label for="instruction1">mouth cleaning of the oral mucosa with some oral sponge brush</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction2" name="instruction" value="teeth cleaning with correct tooth brush, interdental brush and dental floss">
+                    <label for="instruction2">teeth cleaning with correct tooth brush, interdental brush and dental floss</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction3" name="instruction" value="dry mouth soothing with some oral moisturizing gel application">
+                    <label for="instruction3">dry mouth soothing with some oral moisturizing gel application</label>
+                </div>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction4" name="instruction" value="fasting for 30 minutes after fluoride application">
+                    <label for="instruction4">fasting for 30 minutes after fluoride application</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction5" name="instruction" value="precautions after tooth extraction and give health education information">
+                    <label for="instruction5">precautions after tooth extraction and give health education information</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction6" name="instruction" value="having regular oral examinations">
+                    <label for="instruction6">having regular oral examinations</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction7" name="instruction" value="soft diet after filling tooth">
+                    <label for="instruction7">soft diet after filling tooth</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>下次治療項目</h2>
+            
+            <div class="checkbox-group">
+
+    
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next1" name="next_treatment" value="定期檢查及衛教">
+                    <label for="next1">定期檢查及衛教</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next2" name="next_treatment" value="塗氟">
+                    <label for="next2">塗氟</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next3" name="next_treatment" value="單面蛀牙填補">
+                    <label for="next3">單面蛀牙填補</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next4" name="next_treatment" value="牙結石清除">
+                    <label for="next4">牙結石清除</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next5" name="next_treatment" value="牙周敷料">
+                    <label for="next5">牙周敷料</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next6" name="next_treatment" value="牙周病緊急處理">
+                    <label for="next6">牙周病緊急處理</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next7" name="next_treatment" value="牙周暨齲齒控制基本處置">
+                    <label for="next7">牙周暨齲齒控制基本處置</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next8" name="next_treatment" value="非特定局部治療">
+                    <label for="next8">非特定局部治療</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next9" name="next_treatment" value="特定局部治療">
+                    <label for="next9">特定局部治療</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="next10" name="next_treatment" value="簡單性拔牙">
+                    <label for="next10">簡單性拔牙</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>備註 (Notes)</h2>
+            <textarea id="notes" rows="4"></textarea>
+        </div>
+
+
+
+        <button onclick="exportToCSV()">輸出CSV</button>
+    </div>
+</body>
+<script>
+
+function exportToCSV() {
+    const rows = [];
+    
+    // Main Complaints (主訴)
+    document.querySelectorAll('[name="complaint"]').forEach(el => {
+        rows.push(['主訴', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // Diagnoses (診斷)
+    // 洗牙診斷
+    document.querySelectorAll('[id="diagnosis1"]').forEach(el => {
+        rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // 補牙診斷
+    document.querySelectorAll('[name="cavity_location"]').forEach(el => {
+        rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"` + ' cavity', el.checked]);
+    });
+    document.querySelectorAll('[name="caries_location"]').forEach(el => {
+        rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"` + ' caries', el.checked]);
+    });
+    
+    // 拔牙診斷
+    document.querySelectorAll('[name="ulcer_location"]').forEach(el => {
+        if (el.id.startsWith('ulcer_')) {
+            rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"` + ' side oral mucosa ulcer', el.checked]);
+        } else {
+            rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+        }
+    });
+    
+    // 潰瘍和腫脹診斷
+    document.querySelectorAll('[name="swelling_location"]').forEach(el => {
+        rows.push(['診斷', `"${el.value.replace(/"/g, '""')}"` + ' side periodontal swelling', el.checked]);
+    });
+    
+    // Treatments (治療)
+    // 共同治療
+    document.querySelectorAll('[id="co_treatment"]').forEach(el => {
+        rows.push(['治療', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // 洗牙治療
+    document.querySelectorAll('[id="dental_cleaning"]').forEach(el => {
+        rows.push(['治療', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // 磨牙治療
+    document.querySelectorAll('[name="treatment"]').forEach(el => {
+        if (el.id.startsWith('treatment_decayed')) {
+            rows.push(['治療', 'Smooth the sharp part of the ' + `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+        }
+    });
+    
+    // 補牙治療
+    document.querySelectorAll('[name="filling_location"]').forEach(el => {
+        if (!el.id.includes('gif')) {
+            rows.push(['治療', `"${el.value.replace(/"/g, '""')}"` + `" surface CRF after caries removal by hand curet and self-etch adhesives with light-curing filling, polishing and finishing"`, el.checked]);
+        } else {
+            rows.push(['治療', `"${el.value.replace(/"/g, '""')}"` + `" surface GIF after caries removal by hand curet and self-etch adhesives, polishing and finishing"`, el.checked]);
+        }
+    });
+    
+    // 拔牙治療 specific items
+    document.querySelectorAll('[id="topical_anesthesia"], [id="local_anesthesia"]').forEach(el => {
+        rows.push(['治療', `"${el.value.replace(/"/g, '""')}"` + ' and simple extraction', el.checked]);
+    });
+
+    // 潰瘍治療
+    document.querySelectorAll('[name="ulcer_treatment_location"]').forEach(el => {
+        rows.push(['治療', `"${el.value.replace(/"/g, '""')}"` + ` oral ulcer treatment with kenalog gel application`, el.checked]);
+    });
+    
+    // 牙周治療和拆線治療
+    document.querySelectorAll('[id="periodontal_treatment"], [id="remove_stitches"]').forEach(el => {
+        rows.push(['治療', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // Health Education (衛教)
+    document.querySelectorAll('[id^="instruction"]').forEach(el => {
+        rows.push(['衛教', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    
+    // Next Treatment (下次治療項目)
+    document.querySelectorAll('[name="next_treatment"]').forEach(el => {
+        rows.push(['下次治療項目', `"${el.value.replace(/"/g, '""')}"`, el.checked]);
+    });
+    const notes = document.getElementById("notes").value;
+    rows.push(['備註', `"${notes.replace(/"/g, '""')}"`]);
+
+    
+    // Convert to CSV
+    const csvContent = rows.map(row => row.join(',')).join('\n');
+    
+    // Create and download file
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dental_record.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+</html>
