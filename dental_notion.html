@@ -7,7 +7,7 @@
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title>Dental Notion</title>
+        <title>牙位圖</title>
         <style>
             /* 定義牙齒的不同狀態 */
             .D { fill: #FF0000; }     
@@ -188,6 +188,16 @@
                 // 獲取姓名和身分證字號
                 const name = document.getElementById('pname').value;
                 const id = document.getElementById('pid').value;
+
+
+                if (!name.trim()) {
+                    alert('請輸入姓名！');
+                    return; // Stop the function if the name field is empty
+                }
+                if (!id.trim()) {
+                    alert('請輸入身份證字號！');
+                    return; // Stop the function if the name field is empty
+                }
                 // 準備CSV內容
                 
                 // csvContent += `身分證字號：${id}\n`;
