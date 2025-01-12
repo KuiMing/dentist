@@ -1064,15 +1064,6 @@ function validateNumber(input) {
         rows.push(['備註', `"${notes.replace(/"/g, '""')}"`]);
 
         // Teeth Table Data
-        // document.querySelectorAll('.tooth-table').forEach((table, tableIndex) => {
-        //     const tableData = [];
-        //     table.querySelectorAll('input[type="number"]').forEach(input => {
-        //         const value = input.value || '';
-        //         tableData.push(value);
-        //     });
-        //     rows.push([`牙齒表格 ${tableIndex + 1}`, ...tableData]);
-        // });
-            // Teeth Table Data
         document.querySelectorAll('.tooth-table, .tooth-table-2').forEach((table, tableIndex) => {
             let subCategory = getParentH3(table);
             if (!subCategory) {
@@ -1081,18 +1072,19 @@ function validateNumber(input) {
             const inputs = table.querySelectorAll('input[type="number"]');
             inputs.forEach((input, inputIndex) => {
                 const value = input.value || '';
-                // addRow('診斷', value, subCategory, `牙位_${inputIndex + 1}`);
                 rows.push([`${subCategory}`, `牙位_${inputIndex + 1}`, value]);
             });
         });
 
         // Generate and Download CSV
+        const date = new Date().toISOString().split('T')[0];
+        const fileName = name ? `tooth_status_${name}_${id}_${date}.csv` : 'tooth_status.csv';
         const csvContent = rows.map(row => row.join(',')).join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
         link.setAttribute('href', url);
-        link.setAttribute('download', 'dental_record.csv');
+        link.setAttribute('download', fileName);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
