@@ -308,8 +308,8 @@
                     <option value="鄭俊東 N100000001">
                 </datalist>
             </h1>
-            <h1><label for="pname">姓名：</label><input type="text" id="pname" name="pname"></h1>
-            <h1><label for="pid">身分證字號：</label><input type="text" id="pid" name="pid"></h1>
+            <h1><label for="pname">姓名：</label><input type="text" id="pname" name="pname" required></h1>
+            <h1><label for="pid">身分證字號：</label><input type="text" id="pid" name="pid" required></h1>
         </div>
         <div class="section">
             <h2>主訴</h2>
@@ -525,7 +525,7 @@
                 </div>
             </div> 
             <div class="location-group">
-                <h3>補牙治療</h3>
+                <h3>補牙治療- CRF</h3>
                 <div class="location-checkboxes">
                     <div class="location-item">
                         <input type="checkbox" id="fill_labial" name="filling_location" value="Labial">
@@ -561,7 +561,7 @@
                 </div>
             </div>
             <div class="location-group">
-                <h3>補牙治療</h3>
+                <h3>補牙治療- GIF</h3>
                 <div class="location-checkboxes">
                     <div class="location-item">
                         <input type="checkbox" id="fill_labial_gif" name="filling_location" value="Labial">
@@ -786,10 +786,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next3" name="next_treatment">
+                            <input type="checkbox" id="next3" name="next_treatment"  value="單面蛀牙填補">
                             <label>單面蛀牙填補</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_3">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -803,10 +803,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next4" name="next_treatment">
+                            <input type="checkbox" id="next4" name="next_treatment" value="牙結石清除">
                             <label>牙結石清除</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_4">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -820,10 +820,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next5" name="next_treatment">
+                            <input type="checkbox" id="next5" name="next_treatment" value="牙周敷料">
                             <label>牙周敷料</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_5">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -837,10 +837,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next6" name="next_treatment">
+                            <input type="checkbox" id="next6" name="next_treatment" value="牙周病緊急處理">
                             <label>牙周病緊急處理</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_6">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -854,10 +854,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next7" name="next_treatment">
+                            <input type="checkbox" id="next7" name="next_treatment" value="牙周暨齲齒控制基本處置">
                             <label>牙周暨齲齒控制基本處置</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_7">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -876,10 +876,10 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next9" name="next_treatment">
+                            <input type="checkbox" id="next9" name="next_treatment" value="特定局部治療">
                             <label>特定局部治療</label>
                         </div>
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_9">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -893,11 +893,11 @@
                 <div class="treatment-item">
                     <div class="treatment-item-content">
                         <div class="treatment-label">
-                            <input type="checkbox" id="next10" name="next_treatment">
+                            <input type="checkbox" id="next10" name="next_treatment" value="簡單性拔牙">
                             <label>簡單性拔牙</label>
                         </div>
                         
-                        <table class="tooth-table-2">
+                        <table class="tooth-table-2" id="下次治療項目_10">
                             <tr>
                                 <td>#</td>
                                 <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
@@ -944,67 +944,155 @@ function validateNumber(input) {
     }
     function exportToCSV() {
         const rows = [];
-        let categoryCount = {}; // 用於追蹤每個類別的序號
+        const name = document.getElementById('pname').value;
+        const id = document.getElementById('pid').value;
+        const doctor = document.getElementById('doctor').value;
+        if (!name.trim()) {
+            alert('請輸入姓名！');
+            return; // Stop the function if the name field is empty
+        }
+        if (!id.trim()) {
+            alert('請輸入身份證字號！');
+            return; // Stop the function if the name field is empty
+        }
+        if (!doctor.trim()) {
+            alert('請輸入醫生姓名！');
+            return; // Stop the function if the name field is empty
+        }
+        rows.push(['category', 'subcategory', 'content']);
+        rows.push(['姓名', '',`"${name}"`]);
+        rows.push(['身份證字號', '', `"${id}"`])
+        rows.push(['醫生', '', `"${doctor}"`])
+        let categoryCounters = { 主訴: 0, 診斷: 0, 治療: 0, 衛教: 0, 下次治療項目: 0 };
 
-        function addRow(category, value, checked) {
-            // 如果該類別尚未初始化序號，設為 1
-            if (!categoryCount[category]) {
-                categoryCount[category] = 1;
-            }
-            // 添加帶序號的行
-            rows.push([`${category} ${categoryCount[category]}`, `"${value.replace(/"/g, '""')}"`, checked]);
-            // 更新序號
-            categoryCount[category]++;
+        function addRow(category, content, checked, subCategory = '') {
+            categoryCounters[category]++;
+            const fullCategory = subCategory ? `${category}_${subCategory}_${categoryCounters[category]}` : `${category}_${categoryCounters[category]}`;
+            rows.push([fullCategory, `"${content.replace(/"/g, '""')}"`, checked]);
         }
 
-        // 主訴
+        // Helper to get the nearest h3 text
+        function getParentH3(element) {
+            const h3 = element.closest('.location-group, .treatment-item, .treatment-grid')?.querySelector('h3');
+            return h3 ? h3.textContent.trim() : '';
+        }
+
+        // Main Complaints (主訴)
         document.querySelectorAll('[name="complaint"]').forEach(el => {
             addRow('主訴', el.value, el.checked);
         });
 
-        // 診斷
-        document.querySelectorAll('[name="diagnosis"], [name="cavity_location"], [name="caries_location"], [name="ulcer_location"], [name="swelling_location"]').forEach(el => {
-            addRow('診斷', el.value, el.checked);
+        // Diagnoses (診斷)
+        document.querySelectorAll('[id="diagnosis1"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('診斷', el.value, el.checked, subCategory);
         });
 
-        // 治療
-        document.querySelectorAll('[name="treatment"], [name="filling_location"], [name="simple_extraction"], [name="ulcer_treatment_location"], [name="periodontal_treatment"], [name="remove_stitches"]').forEach(el => {
-            addRow('治療', el.value, el.checked);
+        document.querySelectorAll('[name="cavity_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('診斷', el.value + ' cavity', el.checked, subCategory);
         });
 
-        // 衛教
+        document.querySelectorAll('[name="caries_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('診斷', el.value + ' caries', el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[name="ulcer_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            const suffix = el.id.startsWith('ulcer_') ? ' side oral mucosa ulcer' : '';
+            addRow('診斷', el.value + suffix, el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[name="swelling_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('診斷', el.value + ' side periodontal swelling', el.checked, subCategory);
+        });
+
+        // Treatments (治療)
+        document.querySelectorAll('[id="co_treatment"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('治療', el.value, el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[id="dental_cleaning"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('治療', el.value, el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[name="treatment"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            if (el.id.startsWith('treatment_decayed')) {
+                addRow('治療', `Smooth the sharp part of the ${el.value}`, el.checked, subCategory);
+            }
+        });
+
+        document.querySelectorAll('[name="filling_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            const suffix = el.id.includes('gif') ? ' surface GIF after caries removal...' : ' surface CRF after caries removal...';
+            addRow('治療', el.value + suffix, el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[id="topical_anesthesia"], [id="local_anesthesia"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('治療', el.value + ' and simple extraction', el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[name="ulcer_treatment_location"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('治療', el.value + ' oral ulcer treatment...', el.checked, subCategory);
+        });
+
+        document.querySelectorAll('[id="periodontal_treatment"], [id="remove_stitches"]').forEach(el => {
+            const subCategory = getParentH3(el);
+            addRow('治療', el.value, el.checked, subCategory);
+        });
+
+        // Health Education (衛教)
         document.querySelectorAll('[id^="instruction"]').forEach(el => {
             addRow('衛教', el.value, el.checked);
         });
 
-        // 下次治療項目
+        // Next Treatment (下次治療項目)
         document.querySelectorAll('[name="next_treatment"]').forEach(el => {
-            addRow('下次治療項目', el.value, el.checked);
+            const subCategory = getParentH3(el);
+            addRow('下次治療項目', el.value, el.checked, subCategory);
         });
 
-        // 備註
-        const notes = document.getElementById("notes").value || '';
+        // Notes (備註)
+        const notes = document.getElementById('notes').value || '';
         rows.push(['備註', `"${notes.replace(/"/g, '""')}"`]);
 
-        // 表格內的數字 (牙齒表格)
-        document.querySelectorAll('.tooth-table').forEach((table, tableIndex) => {
-            const tableData = [];
-            table.querySelectorAll('input[type="number"]').forEach(input => {
-                const value = input.value || ''; // 如果沒有填写，保留为空
-                tableData.push(value);
+        // Teeth Table Data
+        // document.querySelectorAll('.tooth-table').forEach((table, tableIndex) => {
+        //     const tableData = [];
+        //     table.querySelectorAll('input[type="number"]').forEach(input => {
+        //         const value = input.value || '';
+        //         tableData.push(value);
+        //     });
+        //     rows.push([`牙齒表格 ${tableIndex + 1}`, ...tableData]);
+        // });
+            // Teeth Table Data
+        document.querySelectorAll('.tooth-table, .tooth-table-2').forEach((table, tableIndex) => {
+            let subCategory = getParentH3(table);
+            if (!subCategory) {
+                subCategory = table.id
+            }
+            const inputs = table.querySelectorAll('input[type="number"]');
+            inputs.forEach((input, inputIndex) => {
+                const value = input.value || '';
+                // addRow('診斷', value, subCategory, `牙位_${inputIndex + 1}`);
+                rows.push([`${subCategory}`, `牙位_${inputIndex + 1}`, value]);
             });
-            rows.push([`牙齒表格 ${tableIndex + 1}`, ...tableData]);
         });
 
-        // 將數據轉換為 CSV 格式
+        // Generate and Download CSV
         const csvContent = rows.map(row => row.join(',')).join('\n');
-        
-        // 創建並下載文件
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement("a");
+        const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
-        link.setAttribute("href", url);
-        link.setAttribute("download", "dental_record.csv");
+        link.setAttribute('href', url);
+        link.setAttribute('download', 'dental_record.csv');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
