@@ -947,6 +947,7 @@ function validateNumber(input) {
         const name = document.getElementById('pname').value;
         const id = document.getElementById('pid').value;
         const doctor = document.getElementById('doctor').value;
+        const date = new Date().toISOString().split('T')[0];
         if (!name.trim()) {
             alert('請輸入姓名！');
             return; // Stop the function if the name field is empty
@@ -963,6 +964,7 @@ function validateNumber(input) {
         rows.push(['姓名', '',`"${name}"`]);
         rows.push(['身份證字號', '', `"${id}"`])
         rows.push(['醫生', '', `"${doctor}"`])
+        rows.push(['日期', '', `"${date}"`])
         let categoryCounters = { 主訴: 0, 診斷: 0, 治療: 0, 衛教: 0, 下次治療項目: 0 };
 
         function addRow(category, content, checked, subCategory = '') {
@@ -1077,7 +1079,7 @@ function validateNumber(input) {
         });
 
         // Generate and Download CSV
-        const date = new Date().toISOString().split('T')[0];
+        
         const fileName = name ? `tooth_status_${name}_${id}_${date}.csv` : 'tooth_status.csv';
         const csvContent = rows.map(row => row.join(',')).join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
