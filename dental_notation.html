@@ -185,7 +185,7 @@
 
             // 導出表格數據為CSV文件
             function exportToCSV() {
-                // 獲取姓名和身分證字號
+                // 獲取姓名和身份證字號
                 const name = document.getElementById('pname').value;
                 const id = document.getElementById('pid').value;
 
@@ -200,7 +200,7 @@
                 }
                 // 準備CSV內容
                 
-                // csvContent += `身分證字號：${id}\n`;
+                // csvContent += `身份證字號：${id}\n`;
                 
                 // 獲取上顎牙齒編號
                 const upperNumbers = Array.from(document.getElementById('table-head-row-upper')
@@ -223,7 +223,7 @@
                     .map(radio => radio.value);
                 
                 // 添加上顎數據（從左到右）
-                let csvContent = `姓名,身分證字號,日期,`;
+                let csvContent = `姓名,身份證字號,日期,`;
                 const date = new Date().toISOString().split('T')[0];
                 csvContent += upperNumbers.join(',') + ",";
                 csvContent += lowerNumbers.join(',') + '\n';
@@ -252,11 +252,11 @@
         <!-- 
             建立了一個包含兩個輸入欄位的 div 元素，使用 flexbox 來排列這些元素，並設置了 20px 的間距。
             - 第一個輸入欄位是用來輸入姓名的，包含一個標籤 "姓名：" 和一個文本輸入框。
-            - 第二個輸入欄位是用來輸入身分證字號的，包含一個標籤 "身分證字號：" 和一個文本輸入框。
+            - 第二個輸入欄位是用來輸入身份證字號的，包含一個標籤 "身份證字號：" 和一個文本輸入框。
         -->
         <div style="display: flex; gap: 20px;">
             <h2><label for="pname">姓名：</label><input type="text" id="pname" name="pname"></h2>
-            <h2><label for="pid">身分證字號：</label><input type="text" id="pid" name="pid"></h2>
+            <h2><label for="pid">身份證字號：</label><input type="text" id="pid" name="pid"></h2>
         </div>
 
         <!-- 
