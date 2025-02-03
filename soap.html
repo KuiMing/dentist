@@ -1052,7 +1052,7 @@
 
         // Generate and Download CSV
         
-        const fileName = name ? `tooth_status_${name}_${id}_${date}.csv` : 'tooth_status.csv';
+        const fileName = name ? `medical_record_${name}_${id}_${date}.csv` : 'tooth_status.csv';
         const csvContent = rows.map(row => row.join(',')).join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
