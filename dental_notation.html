@@ -224,7 +224,8 @@
                 
                 // 添加上顎數據（從左到右）
                 let csvContent = `姓名,身份證字號,日期,`;
-                const date = new Date().toISOString().split('T')[0];
+                // const date = new Date().toISOString().split('T')[0];
+                const date = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
                 csvContent += upperNumbers.join(',') + ",";
                 csvContent += lowerNumbers.join(',') + '\n';
                 csvContent += name + ',' + id + ','+ date + ',';    
