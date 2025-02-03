@@ -926,7 +926,7 @@
         const name = document.getElementById('pname').value;
         const id = document.getElementById('pid').value;
         const doctor = document.getElementById('doctor').value;
-        const date = new Date().toISOString().split('T')[0];
+        const date = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
         if (!name.trim()) {
             alert('請輸入姓名！');
             return; // Stop the function if the name field is empty
