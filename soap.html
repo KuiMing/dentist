@@ -313,11 +313,10 @@
                     <label for="complaint6">口腔潰瘍 - Oral ulcer</label>
                 </div>
                 
-
             </div>
             <div>
                 <label for="complaint7">備註：</label>
-                <textarea id="complaint7" name="complaint" rows="3"></textarea>
+                <textarea id="complaint7" name="complaint_note" rows="3"></textarea>
             </div>
         </div>
 
@@ -502,6 +501,10 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+            <div>
+                <label for="diagnosis8">備註：</label>
+                <textarea id="diagnosis8" name="diagnosis_note" rows="3"></textarea>
             </div>
         </div>
 
@@ -710,6 +713,11 @@
                     </table>
                 </div>
             </div>
+            <div>
+                <label for="treatment11">備註：</label>
+                <textarea id="treatment11" name="treatment_note" rows="3"></textarea>
+            </div>
+                
         </div>
 
         <div class="section">
@@ -746,6 +754,10 @@
                     <label for="instruction6">having regular oral examinations</label>
                 </div>
                 
+            </div>
+            <div>
+                <label for="instruction8">備註：</label>
+                <textarea id="instruction8" name="instruction_note" rows="3"></textarea>
             </div>
         </div>
 
@@ -973,13 +985,16 @@
         document.querySelectorAll('[name="complaint"]').forEach(el => {
             addRow('主訴', el.value, el.checked);
         });
-
+        document.querySelectorAll('[name="complaint_note"]').forEach(el => {
+            addRow('主訴', '備註', el.value);
+        });
+        
         // Diagnoses (診斷)
         document.querySelectorAll('[id="diagnosis1"]').forEach(el => {
             const subCategory = getParentH3(el);
             addRow('診斷', el.value, el.checked, subCategory);
         });
-
+        
         document.querySelectorAll('[name="cavity_location"]').forEach(el => {
             const subCategory = getParentH3(el);
             addRow('診斷', el.value + ' cavity', el.checked, subCategory);
@@ -1000,7 +1015,9 @@
             const subCategory = getParentH3(el);
             addRow('診斷', el.value + ' side periodontal swelling', el.checked, subCategory);
         });
-
+        document.querySelectorAll('[name="diagnosis_note"]').forEach(el => {
+            addRow('診斷', '備註', el.value);
+        });
         // Treatments (治療)
         document.querySelectorAll('[id="co_treatment"]').forEach(el => {
             const subCategory = getParentH3(el);
@@ -1039,12 +1056,16 @@
             const subCategory = getParentH3(el);
             addRow('治療', el.value, el.checked, subCategory);
         });
-
+        document.querySelectorAll('[name="treatment_note"]').forEach(el => {
+            addRow('治療', '備註', el.value);
+        });
         // Health Education (衛教)
         document.querySelectorAll('[id^="instruction"]').forEach(el => {
             addRow('衛教', el.value, el.checked);
         });
-
+        document.querySelectorAll('[name="instruction_note"]').forEach(el => {
+            addRow('衛教', '備註', el.value);
+        });
         // Next Treatment (下次治療項目)
         document.querySelectorAll('[name="next_treatment"]').forEach(el => {
             const subCategory = getParentH3(el);
