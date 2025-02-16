@@ -71,7 +71,7 @@
             line-height: 1.4;
         }
         textarea {
-            width: 100%;
+            width: 98%;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -300,6 +300,24 @@
                     <input type="checkbox" id="complaint3" name="complaint" value="拔牙 - Ask for oral examination and pain relief due to mobility tooth and swelling">
                     <label for="complaint3">拔牙 - Ask for oral examination and pain relief due to mobility tooth and swelling</label>
                 </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint4" name="complaint" value="檢查 - Ask for oral examination">
+                    <label for="complaint4">檢查 - Ask for oral examination</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint5" name="complaint" value="咬傷 - Lip bite">
+                    <label for="complaint5">咬傷 - Lip bite</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="complaint6" name="complaint" value="口腔潰瘍 - Oral ulcer">
+                    <label for="complaint6">口腔潰瘍 - Oral ulcer</label>
+                </div>
+                
+
+            </div>
+            <div>
+                <label for="complaint7">備註：</label>
+                <textarea id="complaint7" name="complaint" rows="3"></textarea>
             </div>
         </div>
 
@@ -338,6 +356,11 @@
                         <input type="checkbox" id="loc_lingual" name="cavity_location" value="Lingual">
                         <label for="loc_lingual">Lingual</label>
                     </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_mesial" name="cavity_location" value="Mesial">
+                        <label for="loc_mesial">Mesial</label>
+                    </div>
+
                 </div>
                 <div style="display: flex; gap: 20px;">
                     <h4>牙位 #</h4>
