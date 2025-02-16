@@ -169,7 +169,7 @@
         }
         
         .tooth-table-2, .tooth-table input {
-            width: 50px;
+            width: 200px;
             height: 28px;
             padding: 4px;
             text-align: center;
@@ -213,7 +213,7 @@
     
             treatmentCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', () => {
-                    const tableInputs = checkbox.closest('.treatment-item, .simple-treatment')?.querySelectorAll('input[type="number"]');
+                    const tableInputs = checkbox.closest('.treatment-item, .simple-treatment')?.querySelectorAll('input[type="text"]');
                     if (tableInputs) {
                         tableInputs.forEach(input => {
                             input.disabled = !checkbox.checked;
@@ -225,7 +225,7 @@
                 });
     
                 // 初始化狀態
-                const tableInputs = checkbox.closest('.treatment-item, .simple-treatment')?.querySelectorAll('input[type="number"]');
+                const tableInputs = checkbox.closest('.treatment-item, .simple-treatment')?.querySelectorAll('input[type="text"]');
                 if (tableInputs) {
                     tableInputs.forEach(input => {
                         input.disabled = !checkbox.checked;
@@ -238,7 +238,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             // 選取所有 location-item 的 checkbox 和對應的 tooth-table
             const locationCheckboxes = document.querySelectorAll('.location-checkboxes input[type="checkbox"]');
-            const toothTables = document.querySelectorAll('.tooth-table input[type="number"]');
+            const toothTables = document.querySelectorAll('.tooth-table input[type="text"]');
     
             // 初始化時禁用所有 tooth-table 的 input
             toothTables.forEach(input => input.disabled = true);
@@ -248,7 +248,7 @@
                 checkbox.addEventListener('change', () => {
                     // 獲取當前分組的所有 checkbox
                     const group = checkbox.closest('.location-group');
-                    const inputs = group.querySelectorAll('.tooth-table input[type="number"]');
+                    const inputs = group.querySelectorAll('.tooth-table input[type="text"]');
     
                     // 如果該組至少有一個 checkbox 被選中，啟用對應的 tooth-table
                     const anyChecked = Array.from(group.querySelectorAll('input[type="checkbox"]')).some(cb => cb.checked);
@@ -360,15 +360,17 @@
                         <input type="checkbox" id="loc_mesial" name="cavity_location" value="Mesial">
                         <label for="loc_mesial">Mesial</label>
                     </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_distal" name="cavity_location" value="Distal">
+                        <label for="loc_distal">Distal</label>
+                    </div>
 
                 </div>
                 <div style="display: flex; gap: 20px;">
                     <h4>牙位 #</h4>
-                    <table class="tooth-table">
+                    <table class="tooth-table" style="width: 50px;">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -397,14 +399,20 @@
                         <input type="checkbox" id="loc_lingual" name="caries_location" value="Lingual">
                         <label for="loc_lingual">Lingual</label>
                     </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_mesial" name="cavity_location" value="Mesial">
+                        <label for="loc_mesial">Mesial</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="loc_distal" name="cavity_location" value="Distal">
+                        <label for="loc_distal">Distal</label>
+                    </div>
                 </div>
                 <div style="display: flex; gap: 20px;">
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -426,9 +434,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -460,9 +466,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -494,9 +498,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -548,9 +550,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -585,9 +585,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -620,9 +618,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -645,9 +641,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -677,9 +671,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -696,9 +688,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -715,9 +705,7 @@
                     <h4>牙位 #</h4>
                     <table class="tooth-table">
                         <tr class="center-border-horizon">
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
-                            <td><input type="number" min="1" max="8" onblur="validateNumber(this)"></td>
+                            <td><input type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -1073,7 +1061,7 @@
             if (!subCategory) {
                 subCategory = table.id
             }
-            const inputs = table.querySelectorAll('input[type="number"]');
+            const inputs = table.querySelectorAll('input[type="text"]');
             inputs.forEach((input, inputIndex) => {
                 const value = input.value || '';
                 rows.push([`${subCategory}`, `牙位_${inputIndex + 1}`, value]);
