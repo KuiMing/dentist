@@ -722,42 +722,65 @@
 
         <div class="section">
             <h2>衛教 </h2>
-            oral hygiene instruction for
+            Oral Hygiene Instruction for
+            <hr></hr>
             <div class="checkbox-group">
-    
-                <div class="checkbox-item">
+                Mouth cleaning with 
+                <div class="location-checkboxes">
+                    <div class="location-item">
+                        <input type="checkbox" id="mouth_cleaning" name="instruction" value="Tooth Brush">
+                        <label for="mouth_cleaning">Tooth Brush</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="mouth_cleaning" name="instruction" value="Interdental Brush">
+                        <label for="mouth_cleaning">Interdental Brush</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="mouth_cleaning" name="instruction" value="Dental Floss">
+                        <label for="mouth_cleaning">Dental Floss</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="mouth_cleaning" name="instruction" value="Oral Sponge Brush">
+                        <label for="mouth_cleaning">Oral Sponge Brush</label>
+                    </div>
+                    <div class="location-item">
+                        <input type="checkbox" id="mouth_cleaning" name="instruction" value="Mouthwash">
+                        <label for="mouth_cleaning">Mouthwash</label>
+                    </div>
+                </div>
+                <!-- <div class="checkbox-item">
                     <input type="checkbox" id="instruction1" name="instruction" value="mouth cleaning of the oral mucosa with some oral sponge brush">
                     <label for="instruction1">mouth cleaning of the oral mucosa with some oral sponge brush</label>
                 </div>
                 <div class="checkbox-item">
                     <input type="checkbox" id="instruction2" name="instruction" value="teeth cleaning with correct tooth brush, interdental brush and dental floss">
                     <label for="instruction2">teeth cleaning with correct tooth brush, interdental brush and dental floss</label>
+                </div> -->
+                <div class="checkbox-item">
+                    <input type="checkbox" id="instruction3" name="instruction" value="Dry mouth soothing with some oral moisturizing gel application">
+                    <label for="instruction3">Dry mouth soothing with some oral moisturizing gel application</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="instruction3" name="instruction" value="dry mouth soothing with some oral moisturizing gel application">
-                    <label for="instruction3">dry mouth soothing with some oral moisturizing gel application</label>
+                    <input type="checkbox" id="instruction7" name="instruction" value="Soft diet after filling tooth">
+                    <label for="instruction7">Soft diet after filling tooth</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="instruction7" name="instruction" value="soft diet after filling tooth">
-                    <label for="instruction7">soft diet after filling tooth</label>
+                    <input type="checkbox" id="instruction4" name="instruction" value="Fasting for 30 minutes after fluoride application">
+                    <label for="instruction4">Fasting for 30 minutes after fluoride application</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="instruction4" name="instruction" value="fasting for 30 minutes after fluoride application">
-                    <label for="instruction4">fasting for 30 minutes after fluoride application</label>
+                    <input type="checkbox" id="instruction5" name="instruction" value="Precautions after tooth extraction and give health education information">
+                    <label for="instruction5">Precautions after tooth extraction and give health education information</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="instruction5" name="instruction" value="precautions after tooth extraction and give health education information">
-                    <label for="instruction5">precautions after tooth extraction and give health education information</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="instruction6" name="instruction" value="having regular oral examinations">
-                    <label for="instruction6">having regular oral examinations</label>
+                    <input type="checkbox" id="instruction6" name="instruction" value="Having regular oral examinations">
+                    <label for="instruction6">Having regular oral examinations</label>
                 </div>
                 
             </div>
             <div>
-                <label for="instruction8">備註：</label>
-                <textarea id="instruction8" name="instruction_note" rows="3"></textarea>
+                <label for="note_instruction">備註：</label>
+                <textarea id="note_instruction" name="instruction_note" rows="3"></textarea>
             </div>
         </div>
 
@@ -794,9 +817,7 @@
                         <table class="tooth-table-2" id="下次治療項目_3">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -811,9 +832,7 @@
                         <table class="tooth-table-2" id="下次治療項目_4">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -828,9 +847,7 @@
                         <table class="tooth-table-2" id="下次治療項目_5">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -845,9 +862,7 @@
                         <table class="tooth-table-2" id="下次治療項目_6">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -862,9 +877,7 @@
                         <table class="tooth-table-2" id="下次治療項目_7">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -884,9 +897,7 @@
                         <table class="tooth-table-2" id="下次治療項目_9">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -902,9 +913,7 @@
                         <table class="tooth-table-2" id="下次治療項目_10">
                             <tr>
                                 <td>#</td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
-                                <td><input type="number" min="11" max="48" onblur="validateNumber(this)"></td>
+                                <td><input type="text"></td>
                             </tr>
                         </table>
                     </div>
@@ -1060,6 +1069,9 @@
             addRow('治療', '備註', el.value);
         });
         // Health Education (衛教)
+        document.querySelectorAll('[id^="mouth_cleaning"]').forEach(el => {
+            addRow('衛教', 'Mouth cleaning with ' + el.value, el.checked);
+        });
         document.querySelectorAll('[id^="instruction"]').forEach(el => {
             addRow('衛教', el.value, el.checked);
         });
