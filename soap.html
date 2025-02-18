@@ -1113,6 +1113,7 @@
         const id = document.getElementById('pid').value;
         const doctor = document.getElementById('doctor').value;
         const date = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
+        const clinician = document.getElementById('clinician').value;
         if (!name.trim()) {
             alert('請輸入姓名！');
             return; // Stop the function if the name field is empty
@@ -1257,7 +1258,7 @@
             const inputs = table.querySelectorAll('input[type="text"]');
             inputs.forEach((input) => {
                 const value = input.value || '';
-                rows.push([`${subCategory}`, `牙位`, value]);
+                rows.push([`${subCategory}`, `牙位`, `"`+value+`"`]);
             });
         });
 
