@@ -261,6 +261,52 @@
                 });
             });
         });
+        function validateID() {
+            var id = document.getElementById("pid").value.toUpperCase();
+            
+            // 基本格式檢查：1個英文字母開頭，接著9個數字
+            var regex = /^[A-Z][0-9]{9}$/;
+            if (!regex.test(id)) {
+                alert("格式錯誤，請輸入正確的身份證字號格式");
+                return false;
+            }
+            
+            // 身份證字母對應數值
+            var letterMapping = {
+                A:10, B:11, C:12, D:13, E:14, F:15, G:16, H:17, I:34,
+                J:18, K:19, L:20, M:21, N:22, O:35, P:23, Q:24, R:25,
+                S:26, T:27, U:28, V:29, W:32, X:30, Y:31, Z:33
+            };
+            
+            var firstChar = id.charAt(0);
+            if (!(firstChar in letterMapping)) {
+                alert("無效的身份證字母");
+                return false;
+            }
+            
+            // 取得字母對應的兩位數值
+            var code = letterMapping[firstChar];
+            var n1 = Math.floor(code / 10);
+            var n2 = code % 10;
+            
+            // 檢查碼算法：字母轉換後，第一位乘以 1，第二位乘以 9，
+            // 接下來各位數分別乘以 8, 7, 6, 5, 4, 3, 2, 1，最後檢查碼乘以 1，
+            // 總和若能被 10 整除則為合法身份證字號。
+            var sum = n1 * 1 + n2 * 9;
+            var weights = [8, 7, 6, 5, 4, 3, 2, 1];
+            for (var i = 0; i < weights.length; i++) {
+                sum += parseInt(id.charAt(i + 1)) * weights[i];
+            }
+            // 最後一位數（檢查碼）乘以 1
+            sum += parseInt(id.charAt(9));
+            
+            if (sum % 10 === 0) {
+                return true;
+            } else {
+                alert("身份證字號驗證失敗");
+                return false;
+            }
+            }
     </script>
     
 </head>
@@ -1108,6 +1154,11 @@
         }
     }
     function exportToCSV() {
+        idcheck = validateID();
+        if (idcheck == false) {
+            return;
+        }
+        
         const rows = [];
         const name = document.getElementById('pname').value;
         const id = document.getElementById('pid').value;
