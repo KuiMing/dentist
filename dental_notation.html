@@ -278,7 +278,7 @@
                 
                 // 創建並下載CSV文件
                 
-                const fileName = name ? `tooth_status_${name}_${id}_${date}.csv` : 'tooth_status.csv';
+                const fileName = name ? `dental_notation_${name}_${id}_${date}.csv` : 'dental_notation.csv';
                 const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
                 const link = document.createElement('a');
                 const url = URL.createObjectURL(blob);
