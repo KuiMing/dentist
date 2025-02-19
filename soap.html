@@ -314,7 +314,7 @@
     <div class="container">
         <h1>牙科到宅醫療病歷表</h1>
         <div style="display: flex; gap: 20px;">
-            <h1>
+            <h2>
                 <label for="doctor">醫師：</label>
                 <input list="doctor-names" type="text" id="doctor" name="doctor_name" required>
                 <datalist id="doctor-names">
@@ -325,18 +325,18 @@
                     <option value="李桑喆 3731062911_1">
                     <option value="鄭俊東 3731141873_1">
                 </datalist>
-            </h1>
-            <h1>
+            </h2>
+            <h2>
                 <label for="clinician">醫護人員：</label>
                 <input list="clinician-names" type="text" id="clinician" name="clinician_name" required>
                 <datalist id="clinician-names">
                     <option value="李宜芳 001">
                 </datalist>
-            </h1>
+            </h2>
         </div>
         <div style="display: flex; gap: 20px;">
-            <h1><label for="pname">姓名：</label><input type="text" id="pname" name="pname" required></h1>
-            <h1><label for="pid">身份證字號：</label><input type="text" id="pid" name="pid" required></h1>
+            <h2><label for="pname">姓名：</label><input type="text" id="pname" name="pname" required></h2>
+            <h2><label for="pid">身份證字號：</label><input type="text" id="pid" name="pid" required></h2>
         </div>
         <div class="section">
             <h2>主訴</h2>
@@ -751,23 +751,7 @@
                     </table>
                 </div>
             </div>
-            <div class="location-group">
-                <h3>拆線治療</h3>
-                <div class="location-checkboxes">
-                    <div class="location-item">
-                        <input type="checkbox" id="remove_stitches" name="remove_stitches" value="remove stitches under Iodine application">
-                        <label for="remove_stitches">remove stitches under Iodine application</label>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 20px;">
-                    <h4>牙位 #</h4>
-                    <table class="tooth-table">
-                        <tr class="center-border-horizon">
-                            <td><input type="text"></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            
             <div>
                 <label for="treatment11">備註：</label>
                 <textarea id="treatment11" name="treatment_note" rows="3"></textarea>
