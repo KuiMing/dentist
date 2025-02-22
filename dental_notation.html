@@ -232,7 +232,7 @@
                 if (idcheck == false) {
                     return;
                 }
-                // 獲取姓名和身份證字號
+                // 獲取姓名和身分證字號
                 const name = document.getElementById('pname').value;
                 const id = document.getElementById('pid').value;
                 // 獲取備註內容
@@ -243,12 +243,12 @@
                     return; // Stop the function if the name field is empty
                 }
                 if (!id.trim()) {
-                    alert('請輸入身份證字號！');
+                    alert('請輸入身分證字號！');
                     return; // Stop the function if the name field is empty
                 }
                 // 準備CSV內容
                 
-                // csvContent += `身份證字號：${id}\n`;
+                // csvContent += `身分證字號：${id}\n`;
                 
                 // 獲取上顎牙齒編號
                 const upperNumbers = Array.from(document.getElementById('table-head-row-upper')
@@ -271,7 +271,7 @@
                     .map(radio => radio.value);
                 
                 // 添加上顎數據（從左到右）
-                let csvContent = `姓名,身份證字號,日期,備註,`;
+                let csvContent = `姓名,身分證字號,日期,備註,`;
                 // const date = new Date().toISOString().split('T')[0];
                 const date = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
                 csvContent += upperNumbers.join(',') + ",";
@@ -301,11 +301,11 @@
                 // 基本格式檢查：1個英文字母開頭，接著9個數字
                 var regex = /^[A-Z][0-9]{9}$/;
                 if (!regex.test(id)) {
-                    alert("格式錯誤，請輸入正確的身份證字號格式");
+                    alert("格式錯誤，請輸入正確的身分證字號格式");
                     return false;
                 }
                 
-                // 身份證字母對應數值
+                // 身分證字母對應數值
                 var letterMapping = {
                     A:10, B:11, C:12, D:13, E:14, F:15, G:16, H:17, I:34,
                     J:18, K:19, L:20, M:21, N:22, O:35, P:23, Q:24, R:25,
@@ -314,7 +314,7 @@
                 
                 var firstChar = id.charAt(0);
                 if (!(firstChar in letterMapping)) {
-                    alert("無效的身份證字母");
+                    alert("無效的身分證字母");
                     return false;
                 }
                 
@@ -325,7 +325,7 @@
                 
                 // 檢查碼算法：字母轉換後，第一位乘以 1，第二位乘以 9，
                 // 接下來各位數分別乘以 8, 7, 6, 5, 4, 3, 2, 1，最後檢查碼乘以 1，
-                // 總和若能被 10 整除則為合法身份證字號。
+                // 總和若能被 10 整除則為合法身分證字號。
                 var sum = n1 * 1 + n2 * 9;
                 var weights = [8, 7, 6, 5, 4, 3, 2, 1];
                 for (var i = 0; i < weights.length; i++) {
@@ -337,7 +337,7 @@
                 if (sum % 10 === 0) {
                     return true;
                 } else {
-                    alert("身份證字號驗證失敗");
+                    alert("身分證字號驗證失敗");
                     return false;
                 }
             }
@@ -350,11 +350,11 @@
         <!-- 
             建立了一個包含兩個輸入欄位的 div 元素，使用 flexbox 來排列這些元素，並設置了 20px 的間距。
             - 第一個輸入欄位是用來輸入姓名的，包含一個標籤 "姓名：" 和一個文本輸入框。
-            - 第二個輸入欄位是用來輸入身份證字號的，包含一個標籤 "身份證字號：" 和一個文本輸入框。
+            - 第二個輸入欄位是用來輸入身分證字號的，包含一個標籤 "身分證字號：" 和一個文本輸入框。
         -->
         <div style="display: flex; gap: 20px;">
             <h2><label for="pname">姓名：</label><input type="text" id="pname" name="pname" required></h2>
-            <h2><label for="pid">身份證字號：</label><input type="text" id="pid" name="pid" required></h2>
+            <h2><label for="pid">身分證字號：</label><input type="text" id="pid" name="pid" required></h2>
         </div>
 
         <!-- 
