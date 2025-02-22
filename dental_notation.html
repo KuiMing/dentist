@@ -281,8 +281,11 @@
                 csvContent += lowerStatuses.join(',') + '\n';
                 
                 // 創建並下載CSV文件
-                
-                const fileName = name ? `dental_notation_${name}_${id}_${date}.csv` : 'dental_notation.csv';
+                let fileName = name ? `dental_notation_${name}_${id}_${date}.csv` : 'dental_notation.csv';
+                // 如果 notes 有值，則將 備註 添加到文件名中
+                if (notes) {
+                    fileName = fileName.replace('.csv', `_備註.csv`);
+                }
                 const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
                 const link = document.createElement('a');
                 const url = URL.createObjectURL(blob);
