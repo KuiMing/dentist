@@ -111,7 +111,7 @@
             gap: 5px;
             min-width: 100px;
         }
-        input#pname, input#pid, input#doctor, input#clinician {
+        input#pname, input#pid, input#doctor, input#clinician, input#sn {
             font-size: 20px; 
             width: 300px; 
             height: 50px;
@@ -337,6 +337,7 @@
         <div style="display: flex; gap: 20px;">
             <h2><label for="pname">姓名：</label><input type="text" id="pname" name="pname" required></h2>
             <h2><label for="pid">身分證字號：</label><input type="text" id="pid" name="pid" required></h2>
+            <h2><label for="sn">序號：</label><input type="text" id="sn" name="sn" required></h2>
         </div>
         <div class="section">
             <h2>主訴</h2>
@@ -1149,6 +1150,7 @@
         const doctor = document.getElementById('doctor').value;
         const date = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
         const clinician = document.getElementById('clinician').value;
+        const number = document.getElementById('sn').value;
         if (!name.trim()) {
             alert('請輸入姓名！');
             return; // Stop the function if the name field is empty
@@ -1167,6 +1169,7 @@
         rows.push(['醫生', '', `"${doctor}"`])
         rows.push(['醫護人員', '', `"${clinician}"`])
         rows.push(['日期', '', `"${date}"`])
+        rows.push(['序號', '', `"${number}"`])
         let categoryCounters = { 主訴: 0, 診斷: 0, 治療: 0, 衛教: 0, 擬定治療項目: 0, 下次治療項目: 0 };
 
         function addRow(category, content, checked, subCategory = '') {
