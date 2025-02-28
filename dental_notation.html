@@ -236,7 +236,7 @@
                 const name = document.getElementById('pname').value;
                 const id = document.getElementById('pid').value;
                 // 獲取備註內容
-                const notes = document.getElementById('notes').value;
+                const notes = document.getElementById('notes').value.replace(/\n/g, ' || ');
 
                 if (!name.trim()) {
                     alert('請輸入姓名！');

@@ -1189,7 +1189,7 @@
             addRow('主訴', el.value, el.checked);
         });
         document.querySelectorAll('[name="complaint_note"]').forEach(el => {
-            addRow('主訴', '備註', el.value);
+            addRow('主訴', '備註', el.value.replace(/\n/g, ' || '));
         });
         
         // Diagnoses (診斷)
@@ -1219,7 +1219,7 @@
             addRow('診斷', el.value + ' side periodontal swelling', el.checked, subCategory);
         });
         document.querySelectorAll('[name="diagnosis_note"]').forEach(el => {
-            addRow('診斷', '備註', el.value);
+            addRow('診斷', '備註', el.value.replace(/\n/g, ' || '));
         });
         // Treatments (治療)
         document.querySelectorAll('[id="co_treatment"]').forEach(el => {
@@ -1260,7 +1260,7 @@
             addRow('治療', el.value, el.checked, subCategory);
         });
         document.querySelectorAll('[name="treatment_note"]').forEach(el => {
-            addRow('治療', '備註', el.value);
+            addRow('治療', '備註', el.value.replace(/\n/g, ' || '));
         });
         // Health Education (衛教)
         document.querySelectorAll('[id^="mouth_cleaning"]').forEach(el => {
@@ -1270,7 +1270,7 @@
             addRow('衛教', el.value, el.checked);
         });
         document.querySelectorAll('[name="instruction_note"]').forEach(el => {
-            addRow('衛教', '備註', el.value);
+            addRow('衛教', '備註', el.value.replace(/\n/g, ' || '));
         });
         // Next Treatment (擬定治療項目)
         document.querySelectorAll('[name="proposed_treatment"]').forEach(el => {
@@ -1285,7 +1285,7 @@
 
         // Notes (備註)
         const notes = document.getElementById('notes').value || '';
-        rows.push(['備註', `"${notes.replace(/"/g, '""')}"`]);
+        rows.push(['備註', `"${notes.replace(/"/g, '""').replace(/\n/g, ' || ')}"`]);
 
         // Teeth Table Data
         document.querySelectorAll('.tooth-table, .tooth-table-2').forEach((table, tableIndex) => {
